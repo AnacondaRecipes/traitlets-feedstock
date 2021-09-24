@@ -17,6 +17,8 @@ requirements:
   host:
     - python >=3.7
     - pip
+    - wheel
+    - setuptools
   run:
     - python >=3.7
     - ipython_genutils
@@ -25,6 +27,10 @@ test:
   imports:
     - traitlets
     - traitlets.config
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://traitlets.readthedocs.org/
