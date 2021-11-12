@@ -10,15 +10,16 @@ source:
 
 build:
   noarch: python
+  skip: True  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
-    - python >=3.7
+    - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=40.8.0
   run:
     - python >=3.7
 
@@ -26,14 +27,16 @@ test:
   imports:
     - traitlets
     - traitlets.config
-  commands:
-    - pip check
   requires:
     - pip
+    - python <3.10
+  commands:
+    - pip check
 
 about:
   home: http://traitlets.readthedocs.org/
   license: BSD-3-Clause
+  license_family: BSD
   license_file: COPYING.md
   summary: Configuration system for Python applications
   description: |
