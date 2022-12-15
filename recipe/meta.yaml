@@ -42,7 +42,7 @@ about:
     type checking, dynamically calculated default values, and "on change"
     callbacks.
   dev_url: https://github.com/ipython/traitlets
-  doc_url: http://traitlets.readthedocs.org/en/stable/
+  doc_url: https://traitlets.readthedocs.org/en/stable/
   doc_source_url: https://github.com/ipython/traitlets/blob/master/docs/source/index.rst
 
 extra:
