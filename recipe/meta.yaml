@@ -9,8 +9,6 @@ source:
   sha256: 059f456c5a7c1c82b98c2e8c799f39c9b8128f6d0d46941ee118daace9eb70c7
 
 build:
-  noarch: python
-  skip: True  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
@@ -19,9 +17,9 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools >=40.8.0
+    - setuptools
   run:
-    - python >=3.7
+    - python
 
 test:
   imports:
@@ -29,7 +27,7 @@ test:
     - traitlets.config
   requires:
     - pip
-    - python <3.10
+    - python
   commands:
     - pip check
 
