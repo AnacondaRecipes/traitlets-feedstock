@@ -1,4 +1,4 @@
-{% set version = "5.1.1" %}
+{% set version = "5.7.1" %}
 
 package:
   name: traitlets
@@ -6,11 +6,9 @@ package:
 
 source:
   url: https://pypi.io/packages/source/t/traitlets/traitlets-{{ version }}.tar.gz
-  sha256: 059f456c5a7c1c82b98c2e8c799f39c9b8128f6d0d46941ee118daace9eb70c7
+  sha256: fde8f62c05204ead43c2c1b9389cfc85befa7f54acb5da28529d671175bb4108
 
 build:
-  noarch: python
-  skip: True  # [py<37]
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
@@ -19,9 +17,9 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools >=40.8.0
+    - hatchling
   run:
-    - python >=3.7
+    - python
 
 test:
   imports:
@@ -29,7 +27,7 @@ test:
     - traitlets.config
   requires:
     - pip
-    - python <3.10
+    - python
   commands:
     - pip check
 
@@ -44,7 +42,7 @@ about:
     type checking, dynamically calculated default values, and "on change"
     callbacks.
   dev_url: https://github.com/ipython/traitlets
-  doc_url: http://traitlets.readthedocs.org/en/stable/
+  doc_url: https://traitlets.readthedocs.org/en/stable/
   doc_source_url: https://github.com/ipython/traitlets/blob/master/docs/source/index.rst
 
 extra:
