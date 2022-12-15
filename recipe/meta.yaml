@@ -17,7 +17,7 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - hatchling
   run:
     - python
 
