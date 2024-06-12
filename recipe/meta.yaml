@@ -17,7 +17,6 @@ requirements:
   host:
     - python
     - pip
-    - wheel
     - hatchling
   run:
     - python
