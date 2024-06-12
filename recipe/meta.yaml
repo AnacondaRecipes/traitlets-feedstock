@@ -11,7 +11,7 @@ source:
 build:
   skip: True  # [py<38]
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -36,7 +36,7 @@ test:
     - pytest tests
 
 about:
-  home: http://traitlets.readthedocs.org/
+  home: https://traitlets.readthedocs.io/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
@@ -47,7 +47,6 @@ about:
     callbacks.
   dev_url: https://github.com/ipython/traitlets
   doc_url: https://traitlets.readthedocs.org/en/stable/
-  doc_source_url: https://github.com/ipython/traitlets/blob/master/docs/source/index.rst
 
 extra:
   recipe-maintainers:
