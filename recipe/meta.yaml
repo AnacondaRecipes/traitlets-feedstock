@@ -1,4 +1,4 @@
-{% set version = "5.7.1" %}
+{% set version = "5.14.3" %}
 
 package:
   name: traitlets
@@ -6,36 +6,39 @@ package:
 
 source:
   url: https://pypi.io/packages/source/t/traitlets/traitlets-{{ version }}.tar.gz
-  sha256: fde8f62c05204ead43c2c1b9389cfc85befa7f54acb5da28529d671175bb4108
+  sha256: 9ed0579d3502c94b4b3732ac120375cda96f923114522847de4b3bb98b96b6b7
 
 build:
+  skip: True  # [py<38]
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation
 
 requirements:
   host:
     - python
     - pip
-    - wheel
     - hatchling
   run:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - traitlets
     - traitlets.config
   requires:
     - pip
-    - python
+    - pytest
   commands:
     - pip check
+    - pytest tests
 
 about:
-  home: http://traitlets.readthedocs.org/
+  home: https://traitlets.readthedocs.io/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: COPYING.md
+  license_file: LICENSE
   summary: Configuration system for Python applications
   description: |
     Traitlets is a framework that lets Python classes have attributes with
@@ -43,7 +46,6 @@ about:
     callbacks.
   dev_url: https://github.com/ipython/traitlets
   doc_url: https://traitlets.readthedocs.org/en/stable/
-  doc_source_url: https://github.com/ipython/traitlets/blob/master/docs/source/index.rst
 
 extra:
   recipe-maintainers:
