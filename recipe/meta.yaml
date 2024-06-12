@@ -23,20 +23,23 @@ requirements:
     - python
 
 test:
+  source_files:
+    - tests
   imports:
     - traitlets
     - traitlets.config
   requires:
     - pip
-    - python
+    - pytest
   commands:
     - pip check
+    - pytest tests
 
 about:
   home: http://traitlets.readthedocs.org/
   license: BSD-3-Clause
   license_family: BSD
-  license_file: COPYING.md
+  license_file: LICENSE
   summary: Configuration system for Python applications
   description: |
     Traitlets is a framework that lets Python classes have attributes with
